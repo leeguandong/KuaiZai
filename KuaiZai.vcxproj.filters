@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\picodet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vehicle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\plate_det.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\plate_rec.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\put_text.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vehicleattr_rec.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_picodet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_stable_diffusion.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_vehicle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\diffusion_slover.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\prompt_slover.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_pphuman.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\deocder_slover.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\picodet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vehicle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vehicleattr_rec.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\plate_det.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\plate_rec.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\put_text.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\diffusion_slover.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\prompt_slover.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\getmem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\rknn\include\rknn_api.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\decoder_slover.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="data\bus.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="data\dog.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="data\person.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="data\street.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="data\zidane.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="data\street_00001.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="weights\picodet\coco.names" />
+    <None Include="weights\picodet\picodet_m_320_coco.onnx" />
+    <None Include="weights\picodet\picodet_m_416_coco.onnx" />
+    <None Include="weights\picodet\picodet_s_320_coco.onnx" />
+    <None Include="weights\picodet\picodet_s_416_coco.onnx" />
+    <None Include="weights\pp_vehicle\ch_PP-OCRv3_det_infer.onnx" />
+    <None Include="weights\pp_vehicle\ch_PP-OCRv3_rec_infer.onnx" />
+    <None Include="weights\pp_vehicle\mot_ppyoloe_l_36e_ppvehicle.onnx" />
+    <None Include="weights\pp_vehicle\mot_ppyoloe_s_36e_ppvehicle.onnx" />
+    <None Include="weights\pp_vehicle\vehicle_attribute_model.onnx" />
+    <None Include="test\test_image_vehicle.cpp" />
+    <None Include="test\test_video_vehicle.cpp" />
+    <None Include="weights\sd\log_sigmas.bin">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="weights\sd\AutoencoderKL-256-256-fp16-opt.param" />
+    <None Include="weights\sd\AutoencoderKL-512-512-fp16-opt.param" />
+    <None Include="weights\sd\AutoencoderKL-base-fp16.param" />
+    <None Include="weights\sd\FrozenCLIPEmbedder-fp16.param" />
+    <None Include="weights\sd\UNetModel-256-256-MHA-fp16-opt.param" />
+    <None Include="weights\sd\UNetModel-512-512-MHA-fp16-opt.param" />
+    <None Include="weights\sd\UNetModel-base-MHA-fp16.param" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="weights\pp_vehicle\rec_word_dict.txt" />
+    <Text Include="data\magic.txt" />
+    <Text Include="weights\sd\vocab.txt" />
+  </ItemGroup>
+</Project>

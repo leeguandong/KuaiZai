@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{4092445B-179E-41A4-BD9D-723F8952EEE2}</ProjectGuid>
+    <RootNamespace>KuaiZai</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\Microsoft.ML.OnnxRuntime.1.12.1\build\native\include;$(SolutionDir)Dependencies\opencv\build\include;$(SolutionDir)include;$(SolutionDir)Dependencies\ncnn\build\install\include\ncnn;$(SolutionDir)Dependencies\rknn\include;$(SolutionDir)Dependencies\rga\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\Microsoft.ML.OnnxRuntime.1.12.1\runtimes\win-x64\native;$(SolutionDir)Dependencies\opencv\build\x64\vc15\lib;$(SolutionDir)Dependencies\ncnn\build\install\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>onnxruntime.lib;opencv_world401d.lib;ncnn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\Microsoft.ML.OnnxRuntime.1.12.1\build\native\include;$(SolutionDir)Dependencies\opencv\build\include;$(SolutionDir)include;$(SolutionDir)Dependencies\ncnn\build\install\include\ncnn;$(SolutionDir)Dependencies\rknn\include;$(SolutionDir)Dependencies\rga\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\Microsoft.ML.OnnxRuntime.1.12.1\runtimes\win-x64\native;$(SolutionDir)Dependencies\opencv\build\x64\vc15\lib;$(SolutionDir)Dependencies\ncnn\build\install\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>onnxruntime.lib;opencv_world401d.lib;ncnn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\deocder_slover.cpp" />
+    <ClCompile Include="src\diffusion_slover.cpp" />
+    <ClCompile Include="src\picodet.cpp" />
+    <ClCompile Include="src\plate_det.cpp" />
+    <ClCompile Include="src\plate_rec.cpp" />
+    <ClCompile Include="src\prompt_slover.cpp" />
+    <ClCompile Include="src\put_text.cpp" />
+    <ClCompile Include="src\utils.cpp" />
+    <ClCompile Include="src\vehicle.cpp" />
+    <ClCompile Include="src\vehicleattr_rec.cpp" />
+    <ClCompile Include="test\test_picodet.cpp" />
+    <ClCompile Include="test\test_pphuman.cpp" />
+    <ClCompile Include="test\test_stable_diffusion.cpp" />
+    <ClCompile Include="test\test_vehicle.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Dependencies\rknn\include\rknn_api.h" />
+    <ClInclude Include="include\decoder_slover.h" />
+    <ClInclude Include="include\diffusion_slover.h" />
+    <ClInclude Include="include\getmem.h" />
+    <ClInclude Include="include\picodet.h" />
+    <ClInclude Include="include\plate_det.h" />
+    <ClInclude Include="include\plate_rec.h" />
+    <ClInclude Include="include\prompt_slover.h" />
+    <ClInclude Include="include\put_text.h" />
+    <ClInclude Include="include\utils.h" />
+    <ClInclude Include="include\vehicle.h" />
+    <ClInclude Include="include\vehicleattr_rec.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="data\bus.jpg" />
+    <Image Include="data\dog.jpg" />
+    <Image Include="data\person.jpg" />
+    <Image Include="data\street.png" />
+    <Image Include="data\street_00001.jpg" />
+    <Image Include="data\zidane.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test\test_image_vehicle.cpp" />
+    <None Include="test\test_video_vehicle.cpp" />
+    <None Include="weights\picodet\coco.names" />
+    <None Include="weights\picodet\picodet_m_320_coco.onnx" />
+    <None Include="weights\picodet\picodet_m_416_coco.onnx" />
+    <None Include="weights\picodet\picodet_s_320_coco.onnx" />
+    <None Include="weights\picodet\picodet_s_416_coco.onnx" />
+    <None Include="weights\pp_vehicle\ch_PP-OCRv3_det_infer.onnx" />
+    <None Include="weights\pp_vehicle\ch_PP-OCRv3_rec_infer.onnx" />
+    <None Include="weights\pp_vehicle\mot_ppyoloe_l_36e_ppvehicle.onnx" />
+    <None Include="weights\pp_vehicle\mot_ppyoloe_s_36e_ppvehicle.onnx" />
+    <None Include="weights\pp_vehicle\vehicle_attribute_model.onnx" />
+    <None Include="weights\sd\AutoencoderKL-256-256-fp16-opt.param" />
+    <None Include="weights\sd\AutoencoderKL-512-512-fp16-opt.param" />
+    <None Include="weights\sd\AutoencoderKL-base-fp16.param" />
+    <None Include="weights\sd\FrozenCLIPEmbedder-fp16.param" />
+    <None Include="weights\sd\log_sigmas.bin" />
+    <None Include="weights\sd\UNetModel-256-256-MHA-fp16-opt.param" />
+    <None Include="weights\sd\UNetModel-512-512-MHA-fp16-opt.param" />
+    <None Include="weights\sd\UNetModel-base-MHA-fp16.param" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\magic.txt" />
+    <Text Include="weights\pp_vehicle\rec_word_dict.txt" />
+    <Text Include="weights\sd\vocab.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
