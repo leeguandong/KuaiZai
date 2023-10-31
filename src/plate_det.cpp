@@ -57,8 +57,8 @@ void PlateDetector::normalize_(Mat img)
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
 				float pix = img.ptr<uchar>(i)[j * 3 + c];
-				this->input_image_[c * row * col + i * col + j] = (pix / 255.0 - this->meanValues[c]) / this->normValues[c];
-				//this->input_image_[c * row * col + i * col + j] = pix / 255;
+				//this->input_image_[c * row * col + i * col + j] = (pix / 255.0 - this->meanValues[c]) / this->normValues[c];
+				this->input_image_[c * row * col + i * col + j] = pix / 255;
 			}
 		}
 	}

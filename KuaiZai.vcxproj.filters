@@ -36,7 +36,25 @@
     <ClCompile Include="src\vehicleattr_rec.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="test\test_picodet.cpp">
+    <ClCompile Include="src\diffusion_slover.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\prompt_slover.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\deocder_slover.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\yolov5_libtorch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\yolov5_ort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test\dll.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_dll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="test\test_stable_diffusion.cpp">
@@ -45,16 +63,28 @@
     <ClCompile Include="test\test_vehicle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\diffusion_slover.cpp">
+    <ClCompile Include="test\test_yolov5_ort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\prompt_slover.cpp">
+    <ClCompile Include="test\test_yolov5.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="test\test_pphuman.cpp">
+    <ClCompile Include="test\test_picodet.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\deocder_slover.cpp">
+    <ClCompile Include="test\test_yolov5_ort_flycv.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\yolov5_ort_flycv.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\yolov5_openvino.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_dbnet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dbnet.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,10 +119,31 @@
     <ClInclude Include="include\getmem.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\rknn\include\rknn_api.h">
+    <ClInclude Include="include\decoder_slover.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\decoder_slover.h">
+    <ClInclude Include="include\yolov5_libtorch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\dll.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yolov5_ort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cmdline.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yolov5_ort_flycv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\yolov5_openvino.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\dbnet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\clipper.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -113,6 +164,12 @@
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="data\street_00001.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="..\..\..\common\dbnet_crnn_ncnn\img\3.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="..\..\..\common\dbnet_crnn_ncnn\img\1.jpg">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>
@@ -139,10 +196,12 @@
     <None Include="weights\sd\UNetModel-256-256-MHA-fp16-opt.param" />
     <None Include="weights\sd\UNetModel-512-512-MHA-fp16-opt.param" />
     <None Include="weights\sd\UNetModel-base-MHA-fp16.param" />
+    <None Include="x64\Debug\KuaiZai.dll" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="weights\pp_vehicle\rec_word_dict.txt" />
     <Text Include="data\magic.txt" />
     <Text Include="weights\sd\vocab.txt" />
+    <Text Include="weights\yolov5_person\person.txt" />
   </ItemGroup>
 </Project>

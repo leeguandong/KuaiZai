@@ -69,7 +69,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -87,13 +92,13 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\Microsoft.ML.OnnxRuntime.1.12.1\build\native\include;$(SolutionDir)Dependencies\opencv\build\include;$(SolutionDir)include;$(SolutionDir)Dependencies\ncnn\build\install\include\ncnn;$(SolutionDir)Dependencies\rknn\include;$(SolutionDir)Dependencies\rga\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\Microsoft.ML.OnnxRuntime.1.12.1\build\native\include;$(SolutionDir)Dependencies\opencv\build\include;$(SolutionDir)include;$(SolutionDir)Dependencies\ncnn\build\install\include\ncnn;$(SolutionDir)Dependencies\libtorch\include;$(SolutionDir)Dependencies\libtorch\include\torch\csrc\api\include;$(SolutionDir)Dependencies\openvino\runtime\include;$(SolutionDir)Dependencies\openvino\runtime\include\ie;$(SolutionDir)Dependencies\openvino\runtime\include\openvino;$(SolutionDir)Dependencies\openvino\runtime\include\ngraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>$(SolutionDir)packages\Microsoft.ML.OnnxRuntime.1.12.1\runtimes\win-x64\native;$(SolutionDir)Dependencies\opencv\build\x64\vc15\lib;$(SolutionDir)Dependencies\ncnn\build\install\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>onnxruntime.lib;opencv_world401d.lib;ncnn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\Microsoft.ML.OnnxRuntime.1.12.1\runtimes\win-x64\native;$(SolutionDir)Dependencies\opencv\build\x64\vc15\lib;$(SolutionDir)Dependencies\ncnn\build\install\lib;$(SolutionDir)Dependencies\libtorch\lib;$(SolutionDir)Dependencies\openvino\runtime\lib\intel64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>onnxruntime.lib;opencv_world401d.lib;ncnn.lib;torch.lib;c10.lib;torch_cpu.lib;openvinod.lib;openvino_cd.lib;openvino_onnx_frontendd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -119,18 +124,21 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\Microsoft.ML.OnnxRuntime.1.12.1\build\native\include;$(SolutionDir)Dependencies\opencv\build\include;$(SolutionDir)include;$(SolutionDir)Dependencies\ncnn\build\install\include\ncnn;$(SolutionDir)Dependencies\rknn\include;$(SolutionDir)Dependencies\rga\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\Microsoft.ML.OnnxRuntime.1.12.1\build\native\include;$(SolutionDir)Dependencies\opencv\build\include;$(SolutionDir)include;$(SolutionDir)Dependencies\ncnn\build\install\include\ncnn;$(SolutionDir)Dependencies\libtorch\include;$(SolutionDir)Dependencies\libtorch\include\torch\csrc\api\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)packages\Microsoft.ML.OnnxRuntime.1.12.1\runtimes\win-x64\native;$(SolutionDir)Dependencies\opencv\build\x64\vc15\lib;$(SolutionDir)Dependencies\ncnn\build\install\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>onnxruntime.lib;opencv_world401d.lib;ncnn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\Microsoft.ML.OnnxRuntime.1.12.1\runtimes\win-x64\native;$(SolutionDir)Dependencies\opencv\build\x64\vc15\lib;$(SolutionDir)Dependencies\ncnn\build\install\lib;$(SolutionDir)Dependencies\libtorch\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>onnxruntime.lib;opencv_world401d.lib;ncnn.lib;torch.lib;c10.lib;torch_cpu.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\dbnet.cpp" />
+    <ClCompile Include="test\test_dbnet.cpp" />
+    <ClCompile Include="src\yolov5_libtorch.cpp" />
     <ClCompile Include="src\deocder_slover.cpp" />
     <ClCompile Include="src\diffusion_slover.cpp" />
     <ClCompile Include="src\picodet.cpp" />
@@ -141,15 +149,25 @@
     <ClCompile Include="src\utils.cpp" />
     <ClCompile Include="src\vehicle.cpp" />
     <ClCompile Include="src\vehicleattr_rec.cpp" />
+    <ClCompile Include="src\yolov5_openvino.cpp" />
+    <ClCompile Include="src\yolov5_ort.cpp" />
+    <ClCompile Include="src\yolov5_ort_flycv.cpp" />
+    <ClCompile Include="test\dll.cpp" />
+    <ClCompile Include="test\test_dll.cpp" />
     <ClCompile Include="test\test_picodet.cpp" />
-    <ClCompile Include="test\test_pphuman.cpp" />
+    <ClCompile Include="test\test_yolov5.cpp" />
+    <ClCompile Include="test\test_yolov5_ort.cpp" />
     <ClCompile Include="test\test_stable_diffusion.cpp" />
     <ClCompile Include="test\test_vehicle.cpp" />
+    <ClCompile Include="test\test_yolov5_ort_flycv.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Dependencies\rknn\include\rknn_api.h" />
+    <ClInclude Include="include\clipper.h" />
+    <ClInclude Include="include\cmdline.h" />
+    <ClInclude Include="include\dbnet.h" />
     <ClInclude Include="include\decoder_slover.h" />
     <ClInclude Include="include\diffusion_slover.h" />
+    <ClInclude Include="include\dll.h" />
     <ClInclude Include="include\getmem.h" />
     <ClInclude Include="include\picodet.h" />
     <ClInclude Include="include\plate_det.h" />
@@ -159,8 +177,14 @@
     <ClInclude Include="include\utils.h" />
     <ClInclude Include="include\vehicle.h" />
     <ClInclude Include="include\vehicleattr_rec.h" />
+    <ClInclude Include="include\yolov5_libtorch.h" />
+    <ClInclude Include="include\yolov5_openvino.h" />
+    <ClInclude Include="include\yolov5_ort.h" />
+    <ClInclude Include="include\yolov5_ort_flycv.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\common\dbnet_crnn_ncnn\img\1.jpg" />
+    <Image Include="..\..\..\common\dbnet_crnn_ncnn\img\3.jpg" />
     <Image Include="data\bus.jpg" />
     <Image Include="data\dog.jpg" />
     <Image Include="data\person.jpg" />
@@ -189,11 +213,13 @@
     <None Include="weights\sd\UNetModel-256-256-MHA-fp16-opt.param" />
     <None Include="weights\sd\UNetModel-512-512-MHA-fp16-opt.param" />
     <None Include="weights\sd\UNetModel-base-MHA-fp16.param" />
+    <None Include="x64\Debug\KuaiZai.dll" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\magic.txt" />
     <Text Include="weights\pp_vehicle\rec_word_dict.txt" />
     <Text Include="weights\sd\vocab.txt" />
+    <Text Include="weights\yolov5_person\person.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
